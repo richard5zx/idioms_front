@@ -1,11 +1,9 @@
 <template>
-    Update Idiom
+    Update Example
 </template>
-
 <script>
     export default {
-        name:'UpdateIdiom'
+        name:'UpdateExample'
     }
 </script>
-
 <style></style>

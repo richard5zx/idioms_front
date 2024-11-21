@@ -1,10 +1,10 @@
 <template>
-    Update Idiom
+    Delete Example
 </template>
 
 <script>
     export default {
-        name:'UpdateIdiom'
+        name:'DeleteExample'
     }
 </script>
 
