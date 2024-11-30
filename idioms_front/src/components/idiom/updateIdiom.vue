@@ -24,8 +24,8 @@
                 <button @click="updateIdiom()">Update Idiom</button>
             </td>
         </tr>
-        <tr v-if="hasMessage()" colspan="2" align="center">
-            <td>
+        <tr>
+            <td v-if="hasMessage()" colspan="2" align="center">
                 {{ message }}
             </td>
         </tr>
@@ -42,25 +42,19 @@ export default {
             idiom:'',
             definition:'',
             language:'',
-            message:''            
+            message:''
         }
     },
     methods: {
         updateIdiom() {
-            var url = "http://192.168.1.136:8080/idiom/updateIdiom";
-            var data = {
-                "idiom_id": this.idiom_id,
-                "idiom": this.idiom,
-                "definition": this.definition,
-                "language": this.language
-            };
+            var url = "http://192.168.1.136:8080/idiom/updateIdiom/";
             axios
-                .put(url, data)
+                .put(url + this.idiom_id + "/" + this.idiom + "/" + this.definition + "/" + this.language)
                 .then(response => this.message = response.data)
                 .catch(function (error) {
                     console.log(error);
                 });
-            //this.clearTable();
+            this.clearTable();
         },
         clearTable() {
             this.idiom_id = '';
