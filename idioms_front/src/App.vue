@@ -16,41 +16,48 @@
 </script>
 
 <style>
-	@charset "UTF-8";
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	.aside{
-		margin-top: 30px;
-		margin-left: 40px;
-	}
-	body {
-		width: 100%; 
-		min-width: 600px; 
-		max-width: 960px;		
-		background: beige;
-		margin: 0 auto;
-	}	
-	header {
-		width: 100%;	  
-		background: #eaeaea;		
-	}	  
-	main {
-		width: 70%;
-		height: 300px;
-		background: deepskyblue;
-		float: right;	
-	}
-	aside {
-		width: 28%;
-		height: 300px;		
-		background: orange;
-		float: left;	
-	}
-	footer {
-		width: 100%;
-		background: #eaeaea;		
-		clear: both;        
-	}
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.aside {
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
+body {
+	width: 100%;
+	min-width: 600px;
+	max-width: 960px;
+	background: beige;
+	margin: 0 auto;
+}
+
+header {
+	width: 100%;
+	background: #eaeaea;
+}
+
+main {
+	width: 70%;
+	height: 300px;
+	background: deepskyblue;
+	float: right;
+}
+
+aside {
+	width: 28%;
+	height: 300px;
+	background: orange;
+	float: left;
+}
+
+footer {
+	width: 100%;
+	background: #eaeaea;
+	clear: both;
+}
 </style>
