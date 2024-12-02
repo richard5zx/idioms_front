@@ -5,19 +5,19 @@
         </tr>
         <tr>
             <td>Idiom Id</td>
-            <td><input type="text" v-model="idiom_id" size="70"></td>
+            <td><input type="text" v-model="idiom_id" size="60"></td>
         </tr>
         <tr>
             <td>Idiom</td>
-            <td><input type="text" v-model="idiom" size="70"></td>
+            <td><input type="text" v-model="idiom" size="60"></td>
         </tr>
         <tr>
             <td>Definition</td>
-            <td><input type="text" v-model="definition" size="70"></td>
+            <td><input type="text" v-model="definition" size="60"></td>
         </tr>
         <tr>
             <td>Language</td>
-            <td><input type="text" v-model="language" size="70"></td>
+            <td><input type="text" v-model="language" size="60"></td>
         </tr>
         <tr>
             <td colspan="2" align="center">

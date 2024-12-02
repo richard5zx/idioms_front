@@ -4,7 +4,7 @@
 		<main><RouterView></RouterView></main>
 		<aside>
 			<h3><RouterLink to="/AddIdiom">Add Idiom</RouterLink></h3>
-			<h3><RouterLink to="/SearchIdiom">All Idiom</RouterLink></h3>
+			<h3><RouterLink to="/SearchIdiom">Search Idiom</RouterLink></h3>
 			<h3><RouterLink to="/UpdateIdiom">Update Idiom</RouterLink></h3>
 			<h3><RouterLink to="/DeleteIdiom">Delete Idiom</RouterLink></h3>
 		</aside>
