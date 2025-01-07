@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         updateIdiom() {
-            var url = "http://192.168.1.136:8080/idiom/updateIdiom/";
+            var url = "http://192.168.100.92:8080/idiom/updateIdiom/";
             axios
                 .put(url + this.idiom_id + "/" + this.idiom + "/" + this.definition + "/" + this.language)
                 .then(response => this.message = response.data)

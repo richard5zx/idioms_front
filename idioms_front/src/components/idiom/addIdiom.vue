@@ -43,7 +43,8 @@ export default {
     },
     methods: {
         addIdiom() {
-            var url = "http://192.168.1.136:8080/idiom/createIdiom";
+            // Subject to change
+            var url = "http://192.168.100.92:8080/idiom/createIdiom";
             var data = {
                 "idiom": this.idiom,
                 "definition": this.definition,

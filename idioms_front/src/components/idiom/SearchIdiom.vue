@@ -23,7 +23,6 @@
         </button>
         <button @click="goToPage(currentPage - 1)" :disabled="currentPage == totalPages">Next</button>
     </div>
-    
 </template>
 
 <script>
@@ -52,8 +51,10 @@ export default {
         }
     },
     mounted() {
+        // Subject to change
+        var url = "http://192.168.100.92:8080/idiom/getAllIdiom";
         axios
-            .get("http://192.168.1.136:8080/idiom/getAllIdiom")
+            .get(url)
             .then(response => this.idioms = response.data)
             .catch(function(error) {
                 console.log(error);
