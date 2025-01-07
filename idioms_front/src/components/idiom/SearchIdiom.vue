@@ -16,7 +16,7 @@
             <td>{{ idiom.language }}</td>
         </tr>
     </table>
-    <div id="nav">
+    <div id="nav" class="nav">
         <button @click="goToPage(currentPage - 1)" :disabled="currentPage == 1">Prev</button>
         <button v-for="page in totalPages" :key="page" @click="goToPage(page)" :class="{ active: currentPage == page }">
             {{ page }}
@@ -71,4 +71,8 @@ export default {
 </script>
 
 <style>
+    .nav {
+        display: flex;
+        justify-content: center;
+    }
 </style>
