@@ -42,15 +42,15 @@ header {
 }
 
 main {
-	width: 70%;
-	height: 300px;
+	width: 72%;
+	height: 500px;
 	background: deepskyblue;
 	float: right;
 }
 
 aside {
 	width: 28%;
-	height: 300px;
+	height: 500px;
 	background: orange;
 	float: left;
 }

@@ -4,7 +4,12 @@
             <td colspan="4" align="center">Search Idioms</td>
         </tr>
         <tr>
-            <td>Idiom Id</td>
+            <td colspan="2">Enter Idiom (TBC)</td>
+            <td colspan="1"><input type="text" v-model="idiomId" size="40"></td>
+            <td colspan="1"><button>Search</button></td>
+        </tr>
+        <tr>
+            <td width="20%">Idiom Id</td>
             <td>Idiom</td>
             <td>Definition</td>
             <td>Language</td>
@@ -23,6 +28,17 @@
         </button>
         <button @click="goToPage(currentPage - 1)" :disabled="currentPage == totalPages">Next</button>
     </div>
+    
+    <table width="80%" align="center" border="1">
+        <tr>
+            <td colspan="3" align="center">Select Idiom Id</td>
+        </tr>
+        <tr>
+            <td align="center">Enter Idiom Id</td>
+            <td><input type="text" v-model="idiomIdSearch" size="40"></td>
+            <td><button @click="GoToIdiom()">Go to Idiom</button></td>
+        </tr>
+    </table>
 </template>
 
 <script>
@@ -37,7 +53,8 @@ export default {
             language: '',
             idioms: [],
             currentPage: 1,
-            pageSize: 5,
+            pageSize: 4,
+            idiomIdSearch: ''
         }
     },
     computed: {
@@ -65,6 +82,13 @@ export default {
             if (page >= 1 && page <= this.totalPages) {
                 this.currentPage = page;
             }
+        },
+        GoToIdiom() {
+            // Create Session
+            localStorage.setItem("id", this.idiomIdSearch);
+            
+            // Vue Redirection
+            this.$router.push({path: '/IdiomExample'});
         }
     }
 }
