@@ -1,18 +1,19 @@
 <template>
     <table width="80%" border="1">
-        <tr>
-            <td>Idiom</td>
-            <td>Idiomxxxx</td>
+        <tr align="center">
+            <h1>Idiom</h1>
+        </tr>
+        <tr align="center">
+            <td>TBC: Need to get the idiom from the idiomId that was sessioned</td>
         </tr>
     </table>
 
-    <h1>Examples</h1>
     <table width="80%" align="center" border="1">
-        <tr>
+        <tr align="center">
             <td width="20%">Example Id</td>
-            <td>Example</td>
+            <td>Examples</td>
         </tr>
-        <tr v-for="example in examples" :key="example.exampleId">
+        <tr v-for="example in examples" :key="example.exampleId" align="center">
             <td>{{ example.exampleId }}</td>
             <td>{{ example.example }}</td>
         </tr>
