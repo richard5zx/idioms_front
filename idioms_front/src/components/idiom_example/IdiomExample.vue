@@ -1,10 +1,10 @@
 <template>
-    <table width="80%" border="1">
+    <table width="80%" border="3">
         <tr align="center">
             <h1>Idiom</h1>
         </tr>
         <tr align="center">
-            <td>TBC: Need to get the idiom from the idiomId that was sessioned</td>
+            <td>{{ this.idiom }}</td>
         </tr>
     </table>
 
@@ -19,8 +19,21 @@
         </tr>
     </table>
 
-    <h1>Update</h1>
-    <h1>Delete</h1>
+    <table width="80%" align="center" border="1">
+        <tr>
+            <td colspan="2" align="center">Update Example</td>
+        </tr>
+        <tr>
+            <td width="25%">Enter example id</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Enter new example</td>
+            <td><input type="text"></td>
+        </tr>
+    </table>
+
+    <table></table>
 </template>
 
 <script>
@@ -34,15 +47,24 @@ export default {
             exampleId: '',
             idiomId: '',
             examples: [],
+            idiom: ''
         }
     },
     mounted() {
         var id = localStorage.getItem("id");
-        // Subject to change
-        var url = "http://192.168.100.92:8080/idiomExample/getIdiomExampleByIdiomId";
+        // URL subject to change
+        var url1 = "http://192.168.100.92:8080/idiomExample/getIdiomExampleByIdiomId";
         axios
-            .get(url + "/" + id)
+            .get(url1 + "/" + id)
             .then(response => this.examples = response.data)
+            .catch(function(error) {
+                console.log(error);
+            })
+        // URL subject to change
+        var url2 = "http://192.168.100.92:8080/idiom/getIdiomByIdiomId";
+        axios
+            .get(url2 + "/" + id)
+            .then(response => this.idiom = response.data)
             .catch(function(error) {
                 console.log(error);
             });
