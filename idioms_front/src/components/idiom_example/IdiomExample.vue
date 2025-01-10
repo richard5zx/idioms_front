@@ -1,14 +1,17 @@
 <template>
-    <table width="80%" border="3">
+    <table width="90%" align="center" border="1">
         <tr align="center">
-            <h1>Idiom</h1>
+            <td colspan="2">
+                <h1>Idiom</h1>
+            </td>
         </tr>
         <tr align="center">
-            <td>{{ this.idiom }}</td>
+            <td colspan="2">
+                <h4>
+                    {{ this.idiom }}
+                </h4>
+            </td>
         </tr>
-    </table>
-
-    <table width="80%" align="center" border="1">
         <tr align="center">
             <td width="20%">Example Id</td>
             <td>Examples</td>
@@ -19,17 +22,31 @@
         </tr>
     </table>
 
-    <table width="80%" align="center" border="1">
-        <tr>
-            <td colspan="2" align="center">Update Example</td>
+    <table width="90%" align="center" border="1">
+        <tr align="center">
+            <td>Update Example</td>
+            <td>Add Example</td>
+            <td>Delete Example</td>
         </tr>
-        <tr>
-            <td width="25%">Enter example id</td>
-            <td><input type="text"></td>
+        <tr align="center">
+            <td><input type="text" v-model="updateExampleId" placeholder="Id" size="4"></td>
+            <td rowspan="2"><input type="text" v-model="addExample" placeholder="New Example" size="35"></td>
+            <td rowspan="2"><input type="text" v-model="deleteExampleId" placeholder="Id" size="4"></td>
         </tr>
-        <tr>
-            <td>Enter new example</td>
-            <td><input type="text"></td>
+        <tr align="center">
+            <td ><input type="text" v-model="updateExample" placeholder="Updated Example" size="35"></td>
+            
+        </tr>
+        <tr align="center">
+            <td>
+                <button @click="updateIdiomExample()">Update</button>
+            </td>
+            <td>
+                <button @click="addIdiomExample()">Add</button>
+            </td>
+            <td>
+                <button @click="deleteIdiomExample()">Delete</button>
+            </td>
         </tr>
     </table>
 
@@ -44,10 +61,14 @@ export default {
     
     data() {
         return {
-            exampleId: '',
             idiomId: '',
             examples: [],
-            idiom: ''
+            idiom: '',
+            updateExampleId:'',
+            updateExample: '',
+            addExample: '',
+            deleteExampleId: '',
+            message:''
         }
     },
     mounted() {
@@ -68,6 +89,59 @@ export default {
             .catch(function(error) {
                 console.log(error);
             });
+    }, 
+    methods: {
+        updateIdiomExample() {
+            // URL subject to change
+            var url = "http://192.168.100.92:8080/idiomExample/updateIdiomExample";
+            var data = {
+                "exampleId": this.updateExampleId,
+                "example": this.updateExample
+            };
+            axios
+                .put(url, data)
+                .then(response => this.message = response.data)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            console.log();
+            alert("Example Updated");
+            this.clearTable();
+        },
+        addIdiomExample() {
+            var url = "http://192.168.100.92:8080/idiomExample/createIdiomExample";
+            var data = {
+                "idiomId":this.idiomId,
+                "idiomExample": this.addExample
+            };
+            axios
+                .post(url, data)
+                .then(response => this.message = response.data)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            console.log();
+            alert("Example Added");
+            this.clearTable();
+        },
+        deleteIdiomExample() {
+            var url = "http://192.168.100.92:8080/idiomExample/deleteIdiomExample";
+            axios
+                .delete(url + "/" + this.deleteExampleId)
+                .then(response => this.message = response.data)
+                .catch(function (error) {
+                    console.log(error);
+                });
+            console.log();
+            alert("Example Deleted");
+            this.clearTable();
+        },
+        clearTable() {
+            this.updateExampleId = '';
+            this.updateExample = '';
+            this.addExample = '';
+            this.deleteExampleId = '';
+        }
     }
     
 }

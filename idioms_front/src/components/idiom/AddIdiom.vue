@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         addIdiom() {
-            // Subject to change
+            // URL subject to change
             var url = "http://192.168.100.92:8080/idiom/createIdiom";
             var data = {
                 "idiom": this.idiom,
