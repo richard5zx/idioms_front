@@ -61,7 +61,6 @@ export default {
     
     data() {
         return {
-            idiomId: '',
             examples: [],
             idiom: '',
             updateExampleId:'',
@@ -107,12 +106,14 @@ export default {
             console.log();
             alert("Example Updated");
             this.clearTable();
+            this.refreshPage();
         },
         addIdiomExample() {
+            var id = localStorage.getItem("id");
             var url = "http://192.168.100.92:8080/idiomExample/createIdiomExample";
             var data = {
-                "idiomId":this.idiomId,
-                "idiomExample": this.addExample
+                "idiomId": id,
+                "example": this.addExample
             };
             axios
                 .post(url, data)
@@ -123,6 +124,7 @@ export default {
             console.log();
             alert("Example Added");
             this.clearTable();
+            this.refreshPage();
         },
         deleteIdiomExample() {
             var url = "http://192.168.100.92:8080/idiomExample/deleteIdiomExample";
@@ -135,12 +137,16 @@ export default {
             console.log();
             alert("Example Deleted");
             this.clearTable();
+            this.refreshPage();
         },
         clearTable() {
             this.updateExampleId = '';
             this.updateExample = '';
             this.addExample = '';
             this.deleteExampleId = '';
+        },
+        refreshPage() {
+            this.$router.go(0);
         }
     }
     
