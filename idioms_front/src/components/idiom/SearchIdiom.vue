@@ -4,20 +4,18 @@
             <td colspan="4" align="center">Search Idioms</td>
         </tr>
         <tr>
-            <td colspan="2">Enter Idiom (TBC)</td>
-            <td colspan="1"><input type="text" v-model="idiomId" size="40"></td>
-            <td colspan="1"><button>Search</button></td>
+            <td>Search Idiom</td>
+            <td colspan="1"><input type="text" v-model="idiomId" size="40"><button>Search</button></td>
+            <td colspan="1">SelectLanguage(TBC)</td>
         </tr>
         <tr>
             <td width="20%">Idiom Id</td>
             <td>Idiom</td>
-            <td>Definition</td>
             <td>Language</td>
         </tr>
         <tr v-for="idiom in paginatedIdioms" :key="idiom.idiomId">
             <td>{{ idiom.idiomId }}</td>
             <td>{{ idiom.idiom }}</td>
-            <td>{{ idiom.definition }}</td>
             <td>{{ idiom.language }}</td>
         </tr>
     </table>

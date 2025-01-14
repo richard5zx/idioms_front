@@ -13,6 +13,12 @@
             </td>
         </tr>
         <tr align="center">
+            <td width="20%">Definition</td>
+            <td>
+                {{ this.definition }}
+            </td>
+        </tr>
+        <tr align="center">
             <td width="20%">Example Id</td>
             <td>Examples</td>
         </tr>
@@ -63,6 +69,7 @@ export default {
         return {
             examples: [],
             idiom: '',
+            definition: '',
             updateExampleId:'',
             updateExample: '',
             addExample: '',
@@ -85,6 +92,13 @@ export default {
         axios
             .get(url2 + "/" + id)
             .then(response => this.idiom = response.data)
+            .catch(function(error) {
+                console.log(error);
+            })
+        var url3 = "http://192.168.100.92:8080/idiom/getDefinitionByIdiomId";
+        axios
+            .get(url3 + "/" + id)
+            .then(response => this.definition = response.data)
             .catch(function(error) {
                 console.log(error);
             });
